@@ -12,19 +12,19 @@ public class Player : Entity {
 	void Update () {
 		if (Input.GetKey (KeyCode.UpArrow)) 
 		{
-			rigidbody2D.transform.position += Vector3.up * speed * Time.deltaTime;
+			GetComponent<Rigidbody2D>().transform.position += Vector3.up * speed * Time.deltaTime;
 		}
 		if (Input.GetKey (KeyCode.DownArrow)) 
 		{
-			rigidbody2D.transform.position += Vector3.down * speed * Time.deltaTime;
+			GetComponent<Rigidbody2D>().transform.position += Vector3.down * speed * Time.deltaTime;
 		}
 		if (Input.GetKey (KeyCode.RightArrow)) 
 		{
-			rigidbody2D.transform.position += Vector3.right * speed * Time.deltaTime;
+			GetComponent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
 		}
 		if (Input.GetKey (KeyCode.LeftArrow)) 
 		{
-			rigidbody2D.transform.position += Vector3.left * speed * Time.deltaTime;
+			GetComponent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
 		}
 	}
 }

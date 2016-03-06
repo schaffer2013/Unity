@@ -1,0 +1,62 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Level : MonoBehaviour {
+
+
+	public int levelWidth;
+	public int levelHeight;
+
+	public Transform grassTile;
+	public Transform brickTile;
+	public Transform magmaTile;
+
+	public Color grassColor;
+	public Color brickColor;
+	public Color magmaColor;
+
+	private Color[] tileColors;
+
+	public Texture2D levelTexture;
+
+	public Entity player;
+
+	// Use this for initialization
+	void Start () 
+	{
+		levelWidth = levelTexture.width;
+		levelHeight = levelTexture.height;
+		loadLevel ();
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+	
+	}
+
+	void loadLevel()
+	{
+		tileColors = new Color[levelWidth * levelHeight];
+		tileColors = levelTexture.GetPixels ();
+
+		for (int y = 0; y < levelHeight; y++) 
+		{
+			for (int x = 0; x < levelWidth; x++) 
+			{
+				if (tileColors (x + y * levelWidth) == grassColor) 
+				{
+					Instantiate (brickTile, new Vector3 (x, y), Quaternion.identity);
+				}
+				if (tileColors (x + y * levelWidth) == brickColor) 
+				{
+					Instantiate (magmaTile, new Vector3 (x, y), Quaternion.identity);
+				}
+				if (tileColors (x + y * levelWidth) == magmaColor) 
+				{
+					Instantiate (grassTile, new Vector3 (x, y), Quaternion.identity);
+				}
+			}
+		}
+	}
+}
