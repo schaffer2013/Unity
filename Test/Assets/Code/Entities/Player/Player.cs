@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Player : Entity {
 
+	public int numBullets = 0;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -25,6 +27,10 @@ public class Player : Entity {
 		if (Input.GetKey (KeyCode.LeftArrow)) 
 		{
 			GetComponent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
+		}		
+		if (Input.GetKey (KeyCode.Space)& numBullets==0) 
+		{
+			numBullets++;
 		}
 	}
 }

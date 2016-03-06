@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\Entities\Bullet\Bullet.cs" />
      <Compile Include="Assets\Code\Entities\Entity.cs" />
      <Compile Include="Assets\Code\Entities\Player\Player.cs" />
      <Compile Include="Assets\Code\Level\Level.cs" />
