@@ -14,6 +14,7 @@ public class Level : MonoBehaviour {
 	public Color grassColor;
 	public Color brickColor;
 	public Color magmaColor;
+	public Color spawnPointColor;
 
 	private Color[] tileColors;
 
@@ -44,17 +45,24 @@ public class Level : MonoBehaviour {
 		{
 			for (int x = 0; x < levelWidth; x++) 
 			{
-				if (tileColors (x + y * levelWidth) == grassColor) 
+				Color activeColor = tileColors [x + y * levelWidth];
+				if (activeColor == brickColor) 
 				{
 					Instantiate (brickTile, new Vector3 (x, y), Quaternion.identity);
 				}
-				if (tileColors (x + y * levelWidth) == brickColor) 
+				if (activeColor == magmaColor) 
 				{
 					Instantiate (magmaTile, new Vector3 (x, y), Quaternion.identity);
 				}
-				if (tileColors (x + y * levelWidth) == magmaColor) 
+				if (activeColor == grassColor) 
 				{
 					Instantiate (grassTile, new Vector3 (x, y), Quaternion.identity);
+				}
+				if (activeColor == spawnPointColor) 
+				{
+					Instantiate (grassTile, new Vector3 (x, y), Quaternion.identity);
+					Vector2 pos = new Vector2 (x, y);
+					player.transform.position = pos;
 				}
 			}
 		}
